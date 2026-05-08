@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Richardson & Sons Contracting | Hagerstown, MD</title>
+<meta name="description" content="Family-owned general contracting in Hagerstown, MD. Carpentry, decks, remodeling, drywall, painting, electrical, plumbing, and more." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #102a43; --navy-deep: #0a1d31;
+    --gold: #c8a36a; --gold-light: #e0c084;
+    --cream: #faf7f2; --stone: #f3efe8;
+    --ink: #1a1a1a; --muted: #5b6573;
+    --line: #e5dfd4;
+    --shadow: 0 10px 40px rgba(16, 42, 67, 0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--ink); background: #fff; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.2; color: var(--navy); }
+  a { color: var(--navy); text-decoration: none; }
+
+  .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-mark { width: 44px; height: 44px; background: var(--navy); color: var(--gold); border-radius: 6px; display: grid; place-items: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; }
+  .brand-text { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--navy); line-height: 1.1; }
+  .brand-text small { display: block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--navy); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { background: var(--navy); color: #fff !important; padding: 10px 20px; border-radius: 4px; font-size: 13px !important; font-weight: 600 !important; letter-spacing: 0.5px; }
+  .nav-cta:hover { background: var(--gold) !important; }
+  @media (max-width: 768px) { .nav-links a:not(.nav-cta) { display: none; } .brand-text small { display: none; } }
+
+  .hero { position: relative; min-height: 88vh; display: flex; align-items: center; overflow: hidden;
+    background: linear-gradient(135deg, rgba(10,29,49,0.85) 0%, rgba(16,42,67,0.7) 100%), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1920&q=80') center/cover; }
+  .hero-inner { max-width: 1200px; margin: 0 auto; padding: 80px 24px; color: #fff; }
+  .hero-eyebrow { display: inline-block; color: var(--gold-light); font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; border-left: 3px solid var(--gold); padding-left: 14px; }
+  .hero h1 { color: #fff; font-size: clamp(2.4rem, 5.5vw, 4.4rem); margin-bottom: 24px; max-width: 900px; }
+  .hero h1 em { font-style: normal; color: var(--gold-light); }
+  .hero-tag { font-size: 1.2rem; max-width: 620px; color: rgba(255,255,255,0.88); margin-bottom: 36px; }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 16px 32px; border-radius: 4px; font-weight: 600; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.25s; cursor: pointer; border: 2px solid transparent; }
+  .btn-primary { background: var(--gold); color: var(--navy-deep); }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-ghost { border-color: rgba(255,255,255,0.4); color: #fff; }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+  .hero-motto { margin-top: 48px; font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-light); font-size: 1.05rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; max-width: 500px; }
+
+  section { padding: 100px 24px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-eyebrow { color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; display: inline-block; }
+  .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; }
+  .section-header p { color: var(--muted); max-width: 640px; margin: 0 auto; font-size: 1.05rem; }
+
+  .values { background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 64px 24px; }
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .value { text-align: center; padding: 0 24px; border-right: 1px solid var(--line); }
+  .value:last-child { border-right: none; }
+  .value-letter { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold); font-weight: 700; line-height: 1; margin-bottom: 12px; }
+  .value-name { font-weight: 600; color: var(--navy); letter-spacing: 1px; text-transform: uppercase; font-size: 13px; margin-bottom: 8px; }
+  .value-desc { font-size: 14px; color: var(--muted); }
+  @media (max-width: 768px) { .values-grid { grid-template-columns: repeat(2, 1fr); } .value { padding: 24px 16px; border-bottom: 1px solid var(--line); } .value:nth-child(2) { border-right: none; } .value:nth-child(3), .value:nth-child(4) { border-bottom: none; } }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-img { position: relative; border-radius: 4px; overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 4/5;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(10,29,49,0.4) 100%), url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1000&q=80') center/cover; }
+  .about-img::before { content: ''; position: absolute; top: 24px; left: 24px; width: 60px; height: 60px; border-top: 3px solid var(--gold); border-left: 3px solid var(--gold); }
+  .about-img::after { content: '43+ Years'; position: absolute; bottom: 32px; left: 32px; color: #fff; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+  .about-content h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 24px; }
+  .about-content .lead { color: var(--gold); font-weight: 600; font-size: 1.1rem; margin-bottom: 24px; }
+  .about-content p { margin-bottom: 18px; color: var(--muted); }
+  .about-content p strong { color: var(--ink); font-weight: 600; }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } .about-img { aspect-ratio: 16/10; max-width: 500px; margin: 0 auto; } }
+
+  .services { background: var(--stone); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card { background: #fff; border-radius: 4px; padding: 40px 32px; border: 1px solid var(--line); transition: all 0.3s; }
+  .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--gold); }
+  .service-icon { width: 56px; height: 56px; background: var(--cream); border-radius: 4px; display: grid; place-items: center; margin-bottom: 24px; }
+  .service-icon svg { width: 28px; height: 28px; stroke: var(--gold); }
+  .service-card h3 { font-size: 1.4rem; margin-bottom: 16px; }
+  .service-card ul { list-style: none; }
+  .service-card li { font-size: 14px; color: var(--muted); padding: 6px 0 6px 18px; border-bottom: 1px dashed var(--line); position: relative; }
+  .service-card li:last-child { border-bottom: none; }
+  .service-card li::before { content: ''; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+  @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+
+  .cta-strip { background: var(--navy); color: #fff; padding: 80px 24px; text-align: center; }
+  .cta-strip h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 16px; }
+  .cta-strip p { color: rgba(255,255,255,0.8); margin-bottom: 32px; max-width: 560px; margin: 0 auto 32px; }
+
+  .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; }
+  .contact-info h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 24px; }
+  .contact-info > p { color: var(--muted); margin-bottom: 40px; }
+  .contact-row { display: flex; gap: 20px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .contact-row:last-child { border-bottom: none; }
+  .contact-icon { flex: 0 0 44px; width: 44px; height: 44px; background: var(--cream); border-radius: 4px; display: grid; place-items: center; }
+  .contact-icon svg { width: 22px; height: 22px; stroke: var(--gold); }
+  .contact-row .label { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+  .contact-row .value { font-size: 1.05rem; color: var(--ink); font-weight: 500; }
+  .contact-row .value a { color: var(--ink); }
+  .contact-row .value a:hover { color: var(--gold); }
+  .hours { font-size: 14px; color: var(--muted); line-height: 1.9; }
+
+  .quote-card { background: var(--navy); color: #fff; padding: 48px 40px; border-radius: 4px; position: relative; overflow: hidden; }
+  .quote-card::before { content: ''; position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; background: var(--gold); opacity: 0.1; border-radius: 50%; }
+  .quote-card h3 { color: #fff; font-size: 1.6rem; margin-bottom: 16px; }
+  .quote-card p { color: rgba(255,255,255,0.82); margin-bottom: 24px; font-size: 0.95rem; }
+  .quote-card .btn { width: 100%; text-align: center; }
+  .quote-fine { margin-top: 24px; font-size: 12px; color: rgba(255,255,255,0.6); font-style: italic; line-height: 1.6; }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  footer { background: var(--navy-deep); color: rgba(255,255,255,0.7); padding: 48px 24px 32px; text-align: center; }
+  .footer-brand { font-family: 'Playfair Display', serif; color: #fff; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+  .footer-tag { font-style: italic; color: var(--gold-light); font-size: 0.9rem; margin-bottom: 24px; }
+  .footer-divider { width: 60px; height: 2px; background: var(--gold); margin: 24px auto; }
+  .footer-meta { font-size: 13px; }
+  .footer-meta a { color: var(--gold-light); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <div class="brand-mark">R&amp;S</div>
+      <div class="brand-text">Richardson &amp; Sons<small>Contracting · Family Owned</small></div>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSem-titaY1FzKIaj901toKB0FPPD72HmJqcS24wm2wpCE-Vxg/viewform?usp=sf_link" class="nav-cta" target="_blank">Request Quote</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Hagerstown, MD · Father &amp; Son Craftsmen</span>
+    <h1>Bringing your home <em>back to better</em> than it was.</h1>
+    <p class="hero-tag">A father-and-son team with four decades of carpentry behind every nail. From decks and trim to full remodels — we treat your home like it's our own.</p>
+    <div class="hero-cta">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSem-titaY1FzKIaj901toKB0FPPD72HmJqcS24wm2wpCE-Vxg/viewform?usp=sf_link" class="btn btn-primary" target="_blank">Request a Free Quote</a>
+      <a href="tel:2404807247" class="btn btn-ghost">Call 240-480-7247</a>
+    </div>
+    <p class="hero-motto">"If we can't fix it, then it can't be fixed."</p>
+  </div>
+</header>
+
+<section class="values">
+  <div class="container">
+    <div class="values-grid">
+      <div class="value"><div class="value-letter">P</div><div class="value-name">Professionalism</div><div class="value-desc">Show up on time. Do it right. Clean up after.</div></div>
+      <div class="value"><div class="value-letter">A</div><div class="value-name">Affordability</div><div class="value-desc">Fair pricing that respects your budget.</div></div>
+      <div class="value"><div class="value-letter">C</div><div class="value-name">Comfortability</div><div class="value-desc">A team you trust inside your home.</div></div>
+      <div class="value"><div class="value-letter">Q</div><div class="value-name">Quality</div><div class="value-desc">Craftsmanship that holds up for years.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img"></div>
+      <div class="about-content">
+        <span class="section-eyebrow">Our Story</span>
+        <h2>Four decades of craftsmanship — passed down by hand.</h2>
+        <p class="lead">A true family business with a passion for serving the community.</p>
+        <p>It started 43 years ago in Queens, New York, when an 11-year-old <strong>Mabuto Richardson</strong> began working under a skilled carpenter. He fell in love with the trade and went on to sharpen his craft at Thomas Edison Trade School in New York City.</p>
+        <p>Years later, Mabuto passed everything he'd learned on to his son, <strong>Devonte' Smith</strong> — and Richardson &amp; Sons Contracting was born. Two generations, one workshop, and a shared belief that the customer always comes first.</p>
+        <p>We respect your time, your insight, and your investment. We keep our pricing realistic in a changing economy. And whether it's a deck, fence, interior trim, paint, or full remodel — we deliver work you'll be glad to live with for years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">What We Do</span>
+      <h2>Services we offer</h2>
+      <p>From small repairs to full renovations, we handle the full range of work that keeps a home beautiful, safe, and running smoothly.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14.7 6.3l-1 1m0 0l-7.4 7.4a2 2 0 000 2.8l1.2 1.2a2 2 0 002.8 0l7.4-7.4m-4-4l4 4m-4-4l3-3a2.8 2.8 0 014 4l-3 3"/></svg></div>
+        <h3>Carpentry</h3>
+        <ul>
+          <li>Crown molding &amp; baseboard</li><li>Door &amp; window casing</li><li>Custom shelving</li>
+          <li>French doors &amp; windows</li><li>Weather stripping</li><li>Siding &amp; exterior trim</li>
+          <li>Chair rail &amp; picture molding</li><li>Wood flooring</li><li>Beaded board wainscot</li>
+          <li>Rough &amp; finish carpentry</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10h14V10M9 20v-6h6v6"/></svg></div>
+        <h3>Interior Maintenance</h3>
+        <ul>
+          <li>Hard-to-reach light bulb replacement</li><li>CFL &amp; LED bulb upgrades</li>
+          <li>Caulking showers &amp; tubs</li><li>Re-grouting tile</li>
+          <li>Furnace filter changes</li><li>Annual home maintenance check</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16M9 4v16"/></svg></div>
+        <h3>Drywall &amp; Painting</h3>
+        <ul>
+          <li>Drywall installation, all types</li><li>Cement backer board for showers &amp; tubs</li>
+          <li>Hole repair in drywall &amp; plaster</li><li>Drywall finishing — large or small</li>
+          <li>Priming &amp; painting</li><li>Accent walls &amp; new drywall painting</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <h3>Electrical</h3>
+        <ul>
+          <li>Light fixtures &amp; outlets</li><li>Dimmer switches</li><li>Ceiling fans</li>
+          <li>Recessed &amp; exterior lighting</li><li>Energy efficient bulbs &amp; fixtures</li>
+          <li>Baseboard heating</li><li>Doorbells &amp; speaker wire</li>
+          <li>Specialty outlets (range, dryer, AC)</li><li>Floor heating systems</li>
+          <li>Exhaust fans &amp; under-cabinet lighting</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2v6m-4 4a4 4 0 108 0c0-2-2-5-4-8-2 3-4 6-4 8z"/></svg></div>
+        <h3>Plumbing</h3>
+        <ul>
+          <li>Leaking faucet &amp; toilet repair</li><li>Toilet &amp; sink replacement</li>
+          <li>Exterior hose spigots</li><li>Bathroom rough-ins</li>
+          <li>Garbage disposal replacement</li><li>Icemaker hookups</li>
+          <li>New kitchen &amp; bath faucets</li><li>Humidifier water lines &amp; valves</li>
+          <li>Tankless &amp; point-of-use water heaters</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 12l2-2 4 4 8-8 4 4M3 18h18"/></svg></div>
+        <h3>Exterior Maintenance</h3>
+        <ul>
+          <li>Energy efficient windows &amp; doors</li><li>French &amp; sliding doors</li>
+          <li>Basement &amp; double-hung windows</li><li>Fiber cement &amp; vinyl siding</li>
+          <li>Shutters &amp; decorative lighting</li><li>Painting &amp; staining</li>
+          <li>Front entry doors &amp; hardware</li><li>Brass kick plates &amp; mail slots</li>
+          <li>Fireplace mantels &amp; surrounds</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 9h18v3H3zM3 12v9h18v-9M7 12V6h10v6"/></svg></div>
+        <h3>Decks &amp; Porches</h3>
+        <ul>
+          <li>New decking &amp; railings in long-lasting synthetics</li>
+          <li>Deck repairs</li><li>New porches</li>
+          <li>Deck lighting &amp; GFI outlets</li><li>Stair &amp; handrail repair</li>
+          <li>Outdoor speaker installation</li><li>Power washing</li>
+        </ul>
+      </div>
+
+      <div class="service-card" style="background: var(--navy); color: #fff; border-color: var(--navy); grid-column: span 2;">
+        <div class="service-icon" style="background: rgba(255,255,255,0.08);"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="stroke: var(--gold-light);"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3 style="color: #fff;">Don't see what you need?</h3>
+        <p style="color: rgba(255,255,255,0.8); margin-bottom: 24px;">We specialize in decks, fences, interior and exterior trim, painting, remodeling — and much more. If you're not sure whether we handle it, just ask. Chances are we do.</p>
+        <a href="tel:2404807247" class="btn btn-primary">Call to Discuss Your Project</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container">
+    <span class="section-eyebrow" style="color: var(--gold-light);">Ready When You Are</span>
+    <h2>Get a free quote within 15 miles of Hagerstown.</h2>
+    <p>Tell us about your project and we'll get back to you with an honest, transparent estimate. No pressure, no hidden fees.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSem-titaY1FzKIaj901toKB0FPPD72HmJqcS24wm2wpCE-Vxg/viewform?usp=sf_link" class="btn btn-primary" target="_blank">Request Your Free Quote</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-eyebrow">Get in Touch</span>
+        <h2>Let's talk about your project.</h2>
+        <p>Pick up the phone, send an email, or fill out our quote form — whichever's easiest. We respond personally to every inquiry.</p>
+
+        <div class="contact-row">
+          <div class="contact-icon"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><div class="label">Phone</div><div class="value"><a href="tel:2404807247">240-480-7247</a></div></div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="label">Email</div><div class="value"><a href="mailto:RichardsonAndSons@yahoo.com">RichardsonAndSons@yahoo.com</a></div></div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+          <div><div class="label">Hours</div><div class="hours">Monday – Friday<br>8:00 AM – 4:30 PM</div></div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon"><svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="label">Service Area</div><div class="value">Hagerstown, MD &amp; surrounding areas</div></div>
+        </div>
+      </div>
+
+      <div class="quote-card">
+        <h3>Request a Free Quote</h3>
+        <p>Free for projects within 15 miles of Hagerstown, MD. We'll come out, take a look, and give you an honest estimate.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSem-titaY1FzKIaj901toKB0FPPD72HmJqcS24wm2wpCE-Vxg/viewform?usp=sf_link" class="btn btn-primary" target="_blank">Start Your Quote</a>
+        <p class="quote-fine">Quotes outside our 15-mile radius may include a small visit fee, which we deduct from the project total if you choose to move forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Richardson &amp; Sons Contracting</div>
+  <div class="footer-tag">"If we can't fix it, then it can't be fixed."</div>
+  <div class="footer-divider"></div>
+  <div class="footer-meta">
+    240-480-7247 · <a href="mailto:RichardsonAndSons@yahoo.com">RichardsonAndSons@yahoo.com</a><br>
+    <span style="opacity: 0.6; font-size: 12px;">© Richardson &amp; Sons Contracting. Family-owned. Hagerstown, MD.</span>
+  </div>
+</footer>
+
+</body>
+</html>
